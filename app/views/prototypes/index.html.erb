@@ -1,0 +1,23 @@
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは挨拶文を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        こんにちは、
+        <%= link_to current_user.name + "さん", user_path(current_user), class: :greeting__link%>
+      </div>
+    <% end %>
+
+    <div class="card__wrapper">
+      <%# プロトタイプ一覧を表示する %>
+      <% @prototypes.each do |prototype| %>
+        <%= render partial: 'prototypes/prototype', locals: { prototype: prototype } %>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+
+
+
+
